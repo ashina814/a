@@ -1,0 +1,163 @@
+/* --- 洗練されたカラーパレット --- */
+:root {
+    --color-primary: #FF7EB3; /* 上品で明るいコーラルピンク */
+    --color-gradient: linear-gradient(135deg, #FF7EB3 0%, #FF6599 100%);
+    --color-bg-soft: #FFF7FA; /* ほんのり色づく上質な背景色 */
+    --color-text-main: #4A4143; /* 黒ではなく、暖かみのあるチャコールグレー */
+    --color-text-light: #8A7F82;
+    --font-en: 'Jost', sans-serif;
+    --font-jp: 'Noto Sans JP', sans-serif;
+}
+
+body {
+    font-family: var(--font-jp);
+    color: var(--color-text-main);
+    background-color: #FFFFFF;
+    margin: 0;
+    padding-bottom: 70px;
+    line-height: 1.8;
+    letter-spacing: 0.03em; /* 文字間隔を空けて上品さを演出 */
+}
+
+.container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+.section-padding { padding: 100px 0; }
+.alignfull { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; }
+
+/* --- 見出し（雑誌風のエレガントな設計） --- */
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-en {
+    display: block;
+    font-family: var(--font-en);
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+}
+.section-title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0;
+    color: var(--color-text-main);
+}
+
+/* --- ボタン（高級感と立体感） --- */
+.btn-premium {
+    background: var(--color-gradient) !important;
+    color: #FFFFFF !important;
+    border-radius: 60px !important;
+    padding: 18px 45px !important;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 10px 25px rgba(255, 126, 179, 0.25);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* なめらかな動き */
+}
+.btn-premium:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 126, 179, 0.4);
+}
+.btn-large { padding: 22px 60px !important; font-size: 1.1rem; }
+
+/* --- ファーストビュー (透明感の演出) --- */
+.fv-section {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+.fv-bg-image {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&q=80');
+    background-size: cover; background-position: center;
+    opacity: 0.2; /* 画像を薄くして上品に */
+    z-index: 1;
+}
+.fv-content {
+    position: relative; z-index: 2;
+    max-width: 800px; margin: 0 auto; text-align: center;
+}
+.fv-en-title {
+    font-family: var(--font-en);
+    color: var(--color-primary);
+    font-weight: 500; letter-spacing: 0.2em;
+}
+.fv-title {
+    font-size: 3rem; font-weight: 700;
+    line-height: 1.4; margin: 20px 0 30px;
+    background: linear-gradient(to right, #333, #666);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* テキストに微細なグラデーション */
+}
+.fv-subtitle { font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 50px; }
+
+/* --- 悩みセクション（繊細なシャドウのカード） --- */
+.problem-grid { display: flex; gap: 30px; }
+.problem-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03); /* 非常に柔らかい影 */
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 126, 179, 0.1); /* 極細のピンクライン */
+}
+.problem-card:hover { transform: translateY(-5px); }
+.problem-icon {
+    font-family: var(--font-en); font-size: 2.5rem;
+    font-weight: 600; color: var(--color-primary);
+    opacity: 0.5; margin-bottom: 20px; line-height: 1;
+}
+.problem-card h3 { font-size: 1.2rem; font-weight: 500; margin-bottom: 15px; }
+.problem-card p { font-size: 0.95rem; color: var(--color-text-light); }
+
+/* --- サービス特徴（雑誌風レイアウト） --- */
+.bg-soft-pink { background-color: var(--color-bg-soft); }
+.feature-block { display: flex; align-items: center; gap: 60px; }
+.feature-image img {
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(255, 126, 179, 0.15);
+}
+.feature-num {
+    font-family: var(--font-en);
+    color: var(--color-primary);
+    font-size: 1rem; font-weight: 500; letter-spacing: 0.1em;
+    display: block; margin-bottom: 15px;
+}
+.feature-text h3 { font-size: 1.8rem; font-weight: 500; margin-bottom: 25px; line-height: 1.5; }
+.feature-text p { color: var(--color-text-light); }
+
+/* --- CTAセクション --- */
+.cta-section {
+    background: var(--color-gradient);
+    color: #FFFFFF;
+}
+.cta-inner {
+    max-width: 800px; margin: 0 auto; text-align: center;
+    padding: 80px 20px;
+}
+.cta-inner h2 { font-family: var(--font-en); font-size: 2.5rem; margin-bottom: 20px; color: #FFF;}
+.cta-inner p { margin-bottom: 40px; font-size: 1.1rem; opacity: 0.9; }
+.cta-inner .btn-premium { background: #FFFFFF !important; color: var(--color-primary) !important; }
+
+/* --- スマホ固定CTA (ミニマル化) --- */
+.mobile-fixed-cta {
+    position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 9999;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+}
+.cta-btn {
+    flex: 1; padding: 18px 0; text-align: center; text-decoration: none;
+    font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.cta-tel { background-color: #FFFFFF; color: var(--color-text-main); }
+.cta-line { background-color: #06C755; color: #FFFFFF; }
+
+/* --- レスポンシブ --- */
+@media (max-width: 768px) {
+    .section-padding { padding: 60px 0; }
+    .fv-title { font-size: 2rem; }
+    .problem-grid { flex-direction: column; gap: 20px; }
+    .feature-block { flex-direction: column; gap: 30px; }
+}
+
