@@ -1,14 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インフルエンサーPRサービス | デモLP</title>
 <style>
-  /* スマホファーストのCSS設計 */
-  .mockup-hero {
+  /* 全体設定（スマホファースト・中央寄せ） */
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    color: #333;
+    line-height: 1.6;
+  }
+  .lp-container {
+    max-width: 500px; /* スマホサイズに固定して中央表示 */
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    overflow-x: hidden;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  section {
+    padding: 60px 20px;
+  }
+  .section-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #e83e8c;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: #e83e8c;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+
+  /* 1. ファーストビュー */
+  .hero {
     background: linear-gradient(135deg, #fff0f5 0%, #ffb6c1 100%);
     padding: 60px 20px 80px;
     text-align: center;
-    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-    color: #333;
     border-radius: 0 0 30px 30px;
   }
-  .mockup-hero-badge {
+  .hero-badge {
     display: inline-block;
     background-color: #fff;
     color: #e83e8c;
@@ -17,61 +62,246 @@
     padding: 5px 15px;
     border-radius: 20px;
     margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
-  .mockup-hero-title {
+  .hero-title {
     font-size: 24px;
     font-weight: bold;
     line-height: 1.5;
     margin-bottom: 15px;
   }
-  .mockup-hero-title span {
+  .hero-title span {
     color: #e83e8c;
     font-size: 28px;
     display: inline-block;
     margin: 5px 0;
   }
-  .mockup-hero-lead {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 30px;
-    line-height: 1.6;
-  }
-  .mockup-cta-btn {
+
+  /* CTAボタン共通 */
+  .cta-btn {
     display: block;
     background-color: #e83e8c;
     color: #fff;
+    text-align: center;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
-    padding: 18px 20px;
+    padding: 20px;
     border-radius: 30px;
     box-shadow: 0 6px 15px rgba(232, 62, 140, 0.4);
-    transition: transform 0.2s;
+    margin: 20px auto 0;
   }
-  .mockup-cta-btn:active {
-    transform: scale(0.95);
-  }
-  .mockup-cta-sub {
+  .cta-sub {
+    text-align: center;
     font-size: 12px;
     color: #e83e8c;
     margin-top: 10px;
     display: block;
   }
-</style>
 
-<div class="mockup-hero">
-  <div class="mockup-hero-badge">企業・店舗PRご担当者様へ</div>
-  <h1 class="mockup-hero-title">
-    Z世代の心を動かす！<br>
-    <span>インフルエンサー採用</span><br>
-    で圧倒的なPRを。
-  </h1>
-  <p class="mockup-hero-lead">
-    御社のブランドイメージにぴったりの<br>
-    インフルエンサーをアサイン。<br>
-    認知拡大から集客まで丸ごとサポートします。
-  </p>
-  <a href="#contact" class="mockup-cta-btn">無料でサービス資料をダウンロード</a>
-  <span class="mockup-cta-sub">※最短1分で入力完了</span>
+  /* 2. お悩みセクション */
+  .trouble {
+    background-color: #fff;
+  }
+  .trouble-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .trouble-list li {
+    background-color: #fdf2f6;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    position: relative;
+    padding-left: 45px;
+  }
+  .trouble-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e83e8c;
+    font-size: 20px;
+  }
+
+  /* 3. 特徴・選ばれる理由 */
+  .features {
+    background-color: #fff0f5;
+  }
+  .feature-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+  .feature-card h3 {
+    color: #e83e8c;
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  .feature-card p {
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  /* 4. 導入の流れ */
+  .flow {
+    background-color: #fff;
+  }
+  .flow-step {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  .flow-number {
+    background-color: #e83e8c;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-right: 15px;
+  }
+  .flow-content h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    color: #333;
+  }
+  .flow-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+  }
+
+  /* 5. フッターCTA */
+  .footer-cta {
+    background: linear-gradient(135deg, #e83e8c 0%, #ff8cba 100%);
+    padding: 50px 20px;
+    text-align: center;
+    color: #fff;
+  }
+  .footer-cta h2 {
+    margin-top: 0;
+    font-size: 22px;
+  }
+  .footer-cta .cta-btn {
+    background-color: #fff;
+    color: #e83e8c;
+  }
+  .footer-cta .cta-sub {
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="lp-container">
+
+  <header class="hero">
+    <div class="hero-badge">企業・店舗PRご担当者様へ</div>
+    <h1 class="hero-title">
+      Z世代の心を動かす！<br>
+      <span>インフルエンサー採用</span><br>
+      で圧倒的なPRを。
+    </h1>
+    <p style="font-size: 14px; color: #555;">
+      御社のブランドイメージにぴったりのインフルエンサーをアサイン。<br>
+      認知拡大から集客まで丸ごとサポートします。
+    </p>
+    <a href="#contact" class="cta-btn">無料でサービス資料をダウンロード</a>
+    <span class="cta-sub">※最短1分で入力完了</span>
+  </header>
+
+  <section class="trouble">
+    <h2 class="section-title">こんなお悩みありませんか？</h2>
+    <ul class="trouble-list">
+      <li>SNS集客を始めたいが、何から手をつけていいか分からない…</li>
+      <li>自社の商品をもっと若い女性層に届けたい！</li>
+      <li>広告費をかけているのに、なかなかコンバージョンに繋がらない…</li>
+      <li>キャスティング会社を通すと費用が高すぎる…</li>
+    </ul>
+    <p style="text-align: center; margin-top: 30px; font-weight: bold; font-size: 18px;">
+      そのお悩み、<br><span style="color: #e83e8c; font-size: 24px;">当サービス</span>にお任せください！
+    </p>
+  </section>
+
+  <section class="features">
+    <h2 class="section-title">選ばれる3つの理由</h2>
+    
+    <div class="feature-card">
+      <div style="font-size: 40px; margin-bottom: 10px;">👩‍🦰</div>
+      <h3>1. 独自のネットワーク</h3>
+      <p>20代〜30代の女性に強い影響力を持つ、美容・ファッション・グルメ系インフルエンサーを多数ネットワーク。貴社に最適な人材をご提案します。</p>
+    </div>
+
+    <div class="feature-card">
+      <div style="font-size: 40px; margin-bottom: 10px;">📱</div>
+      <h3>2. 企画から投稿まで丸投げOK</h3>
+      <p>インフルエンサーの選定だけでなく、PRの企画立案、ディレクション、投稿内容の確認まで、面倒な業務はすべて弊社が代行します。</p>
+    </div>
+
+    <div class="feature-card">
+      <div style="font-size: 40px; margin-bottom: 10px;">📈</div>
+      <h3>3. 業界最安水準のコストパフォーマンス</h3>
+      <p>独自のシステム化により、無駄な中間マージンをカット。高品質なPRを低価格で実現し、高い費用対効果をお約束します。</p>
+    </div>
+  </section>
+
+  <section class="flow">
+    <h2 class="section-title">ご利用の流れ</h2>
+    
+    <div class="flow-step">
+      <div class="flow-number">1</div>
+      <div class="flow-content">
+        <h4>お問い合わせ・ヒアリング</h4>
+        <p>まずはフォームよりお問い合わせください。ターゲットや予算をヒアリングします。</p>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-number">2</div>
+      <div class="flow-content">
+        <h4>プラン・リストのご提案</h4>
+        <p>ヒアリングをもとに、最適なPRプランとインフルエンサーの候補リストを提出します。</p>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-number">3</div>
+      <div class="flow-content">
+        <h4>ご契約・すり合わせ</h4>
+        <p>内容にご納得いただけましたらご契約となります。詳細な投稿内容を決定します。</p>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="flow-number">4</div>
+      <div class="flow-content">
+        <h4>PR実施・効果測定</h4>
+        <p>インフルエンサーによるPR投稿を実施。完了後はレポートを提出いたします。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="footer-cta">
+    <h2>まずは無料でご相談ください</h2>
+    <p style="font-size: 14px; margin-bottom: 30px;">
+      他社との比較や、ざっくりとしたお見積りだけでも大歓迎です。お気軽にお問い合わせください。
+    </p>
+    <a href="#" class="cta-btn">お問い合わせフォームへ進む</a>
+    <span class="cta-sub">※24時間受付中</span>
+  </section>
+
 </div>
+
+</body>
+</html>
